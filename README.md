@@ -1,2 +1,2 @@
 # Trendy
-**Trendy is a discussion app where users comment and vote on topics created by admins.**
+**Trendy is a discussion app where users comment and discuss trending topics posted by Trendy Team.**
