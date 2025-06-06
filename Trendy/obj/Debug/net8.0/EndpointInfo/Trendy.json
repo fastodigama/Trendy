@@ -5,191 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Comments": {
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Comment"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Comment"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Comment"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Comments/{id}": {
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Comment"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Comments"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Comment"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Comments"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Topics": {
       "get": {
         "tags": [
@@ -374,195 +189,31 @@
           }
         }
       }
-    },
-    "/api/Users": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Users/{id}": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
+      "Category": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Topic"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Comment": {
         "required": [
           "topic",
@@ -622,6 +273,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Comment"
+            },
+            "nullable": true
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
             },
             "nullable": true
           }

@@ -12,5 +12,10 @@ namespace Trendy.Models
 
         //A topic can have many comments
         public ICollection<Comment>? Comments { get; set; }
+
+        //A topic can be applied to many categories?
+        public ICollection<Category>? Categories { get; set; }
+
+
     }
 }

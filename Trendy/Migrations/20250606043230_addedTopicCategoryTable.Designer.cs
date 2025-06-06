@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trendy.Models;
 
@@ -11,9 +12,11 @@ using Trendy.Models;
 namespace Trendy.Migrations
 {
     [DbContext(typeof(TrendyDbContext))]
-    partial class TrendyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250606043230_addedTopicCategoryTable")]
+    partial class addedTopicCategoryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

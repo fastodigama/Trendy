@@ -20,6 +20,11 @@ namespace Trendy.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+
         // GET: api/Topics
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
