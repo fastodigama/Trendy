@@ -18,4 +18,22 @@ namespace Trendy.Models
 
 
     }
+    public class TopicDto
+    {
+        public int TopicId { get; set; }
+        public string? TopicTitle { get; set; }
+        public string? TopicDescription { get; set; }
+        //each topic can have many categories
+        public List<string>? TopicCategory { get; set; }
+        public string? CreatedAt { get; set; }
+    }
+
+    public class CreateTopicDto
+    {
+       
+        public string? TopicTitle { get; set; }
+        public string? TopicDescription { get; set; }
+        public List<int>? TopicCategory { get; set; }
+        
+    }
 }
