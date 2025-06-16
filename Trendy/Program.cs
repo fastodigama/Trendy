@@ -2,7 +2,9 @@ using System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Trendy.Data;
+using Trendy.Interfaces;
 using Trendy.Models;
+using Trendy.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +13,20 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-//added this manually 
+//added TrendyDbContext manually 
 builder.Services.AddDbContext<TrendyDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+//register TopicService
+builder.Services.AddScoped<ITopicService, TopicService>();
+//register Category service
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+//register comment service
+builder.Services.AddScoped<ICommentService, CommentService>();
+
+
+
+
 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

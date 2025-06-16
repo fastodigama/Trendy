@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Trendy.Interfaces;
 using Trendy.Models;
 
 namespace Trendy.Controllers
@@ -13,95 +14,150 @@ namespace Trendy.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
+        private readonly ICategoryService _categoryService;
         private readonly TrendyDbContext _context;
 
-        public CategoriesController(TrendyDbContext context)
+        public CategoriesController(ICategoryService CategoryService)
         {
-            _context = context;
+            _categoryService = CategoryService;
         }
 
-        // GET: api/Categories
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+
+
+
+
+        /// <summary>
+        /// Retrieves a list of all available categories.
+        /// </summary>
+        /// <returns>
+        /// 200 OK with a list of CategoryDto objects representing all categories.
+        /// </returns>
+
+        [HttpGet(template:"ListCategories")]
+        public async Task<ActionResult<IEnumerable<Category>>> ListCategories()
         {
-            return await _context.Categories.ToListAsync();
+            IEnumerable<CategoryDto> categoryDtos = await _categoryService.ListCategories();
+            return Ok(categoryDtos);
         }
 
-        // GET: api/Categories/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        /// <summary>
+        /// Retrieves a specific category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category.</param>
+        /// <returns>200 OK with CategoryDto, or 404 if not found.</returns>
+        
+        [HttpGet("GetCategoryById/{id}")]
+        public async Task<ActionResult<CategoryDto>> GetCategoryById(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-
+            var category = await _categoryService.GetCategoryById(id);
             if (category == null)
-            {
-                return NotFound();
-            }
+                return NotFound($"No category found with ID {id}");
 
-            return category;
+            return Ok(category);
         }
 
-        // PUT: api/Categories/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        /// <summary>
+        /// Adds a new category to the system.
+        /// </summary>
+        /// <param name="categoryDto">The DTO containing category details.</param>
+        /// <returns>201 Created with the new category ID, or 500 if there's an error.</returns>
+        
+        [HttpPost("AddCategory")]
+        public async Task<IActionResult> AddCategory([FromBody] CreateCategoryDto createCategoryDto)
         {
-            if (id != category.CategoryId)
-            {
-                return BadRequest();
-            }
+            var response = await _categoryService.AddNewCategory(createCategoryDto);
 
-            _context.Entry(category).State = EntityState.Modified;
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CategoryExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            return Ok(response);
 
-            return NoContent();
         }
 
-        // POST: api/Categories
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        /// <summary>
+        /// Deletes a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to delete.</param>
+        /// <returns>
+        /// A ServiceResponse indicating:
+        /// - 200 OK if the category was deleted successfully.
+        /// - 404 Not Found if the category doesn't exist.
+        /// - 500 Internal Server Error if deletion failed.
+        /// </returns>
+        [HttpDelete("DeleteCategory/{id}")]
+        public async Task<ActionResult<ServiceResponse>> DeleteCategory(int id)
         {
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+            var response = await _categoryService.DeleteCategory(id);
 
-            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response);
+
+            return Ok(response);
         }
 
-        // DELETE: api/Categories/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        /// <summary>
+        /// Links one or more categories to a specific topic.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic.</param>
+        /// <param name="categoryIds">List of category IDs to link to the topic.</param>
+        /// <returns>A ServiceResponse indicating the result.</returns>
+        [HttpPost("LinkCategoryToTopic/{topicId}")]
+        public async Task<IActionResult> LinkCategoryToTopic(int topicId, [FromBody] List<int> categoryIds)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
-            {
-                return NotFound();
-            }
+            var response = await _categoryService.LinkCategoryToTopic(topicId, categoryIds);
 
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response.Messages);
 
-            return NoContent();
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
+
+            return Ok(response);
         }
 
-        private bool CategoryExists(int id)
+        /// <summary>
+        /// Unlinks a category from a topic.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic.</param>
+        /// <param name="categoryId">The ID of the category.</param>
+        /// <returns>A ServiceResponse indicating success or failure.</returns>
+        [HttpPost("UnlinkCategoryFromTopic")]
+        public async Task<IActionResult> UnlinkCategoryFromTopic(int topicId, int categoryId)
         {
-            return _context.Categories.Any(e => e.CategoryId == id);
+            var response = await _categoryService.UnlinkCategoryFromTopic(topicId, categoryId);
+
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response.Messages);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
+
+            return Ok(response);
         }
+
+        /// <summary>
+        /// Updates an existing category.
+        /// </summary>
+        /// <param name="categoryDto">The updated category data.</param>
+        /// <returns>A ServiceResponse indicating success or failure.</returns>
+        [HttpPut("UpdateCategory")]
+        public async Task<IActionResult> UpdateCategory([FromBody] CategoryDto categoryDto)
+        {
+            var response = await _categoryService.UpdateCategory(categoryDto);
+
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response.Messages);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
+
+            return Ok(response);
+        }
+
+
+
     }
 }

@@ -12,6 +12,8 @@ namespace Trendy.Models
         public DbSet<Comment> Comments { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<CategoryTopic> CategoryTopics { get; set; }
         public TrendyDbContext (DbContextOptions<TrendyDbContext> options): base(options)
         {
 

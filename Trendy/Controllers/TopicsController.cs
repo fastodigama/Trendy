@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Trendy.Interfaces;
 using Trendy.Models;
 
 namespace Trendy.Controllers
@@ -13,11 +15,11 @@ namespace Trendy.Controllers
     [ApiController]
     public class TopicsController : ControllerBase
     {
-        private readonly TrendyDbContext _context;
+        private readonly ITopicService _topicService;
 
-        public TopicsController(TrendyDbContext context)
+        public TopicsController(ITopicService topicService)
         {
-            _context = context;
+            _topicService = topicService;
         }
 
         /// <summary>
@@ -34,74 +36,68 @@ namespace Trendy.Controllers
         [HttpGet(template:"ListTopics")]
         public async Task<ActionResult<IEnumerable<TopicDto>>> ListTopics()
         {
-            List<Topic> topics = await _context.Topics
-                .Include(t => t.Categories)
-                .ToListAsync();
 
+            //useing the interface and service to fetch list of topics in the db
+            IEnumerable<TopicDto> topicDtos = await _topicService.ListTopics();
 
-            List<TopicDto> topicDtos = new List<TopicDto>();
-
-            //foreach topic in the database
-
-            foreach(Topic topic in topics)
-            {
-                //create new instance of topicDto, add to list
-                topicDtos.Add(new TopicDto()
-                {
-                    TopicId = topic.TopicId,
-                    TopicCategory = topic.Categories.Select(c => c.CategoryName).ToList(),
-                    TopicDescription= topic.TopicDescription,
-                    TopicTitle = topic.TopicTitle,
-                    CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd")
-
-                });
-            }
-            //return 200 OK with topicDtos
+            // Return a 200 OK response with the list of TopicDto objects
             return Ok(topicDtos);
 
         }
 
         /// <summary>
-        /// returns single topic specified by {id}, represented by TopicDto
+        /// Retrieves a specific topic by its unique identifier.
         /// </summary>
-        /// <param name="id">Tipic id</param>
+        /// <param name="id">The ID of the topic to retrieve.</param>
         /// <returns>
-        /// 200 OK
-        /// {topicDto}
-        /// or
-        /// 404 Not Found
+        /// Returns a 200 OK response with the TopicDto object if found.
+        /// Returns a 404 Not Found response if no topic exists with the given ID.
         /// </returns>
+        /// <remarks>
+        /// This method calls the TopicService to fetch a topic by ID.
+        /// If the topic is found, it is returned in the response.
+        /// If no topic matches the given ID, a NotFound response is returned.
+        /// </remarks>
         /// <example>
-        /// GET: api/Topic/FindTopic/1 - {TopicDto}
+        /// GET: api/Topic/2 -> Returns the topic with ID 2.
+        /// GET: api/Topic/99 -> Returns 404 Not Found if topic 99 doesn't exist.
         /// </example>
-        [HttpGet(template:"FindTopic/{id}")]
 
-        public async Task<ActionResult<TopicDto>> FindTopic(int id)
+        //[HttpGet(template:"GetTopicById/{id}")]
+
+        [HttpGet("GetTopicById/{id}")]
+
+        public async Task<ActionResult<ServiceResponse>> GetTopicById(int id)
         {
-            //include will join (topic) with Categories
+            var response = await _topicService.GetTopicById(id);
 
-            var topic = await _context.Topics
-                .Include(t => t.Categories)
-                .FirstOrDefaultAsync(t => t.TopicId == id);
-            //if topic could not be located, return 404 Not Found
-            if(topic == null)
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                return NotFound();
+                return NotFound(response);
             }
 
-            //create instance of TopicDto
-            TopicDto topicDto = new TopicDto()
-            {
-                TopicId = topic.TopicId,
-                TopicCategory = topic.Categories.Select(t => t.CategoryName).ToList(),
-                TopicDescription = topic.TopicDescription,
-                TopicTitle = topic.TopicTitle,
-                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd")
+            return Ok(response);
 
-            };
-            //return 200 Ok with topicDto
-            return Ok(topicDto);
+
         }
+
+        [HttpGet("GetTopicsByCategoryId/{id}")]
+
+        public async Task<IActionResult> GetTopicsByCategoryId(int id)
+        {
+            var response = await _topicService.ListTopicsByCategoryId(id);
+            if(response.Status == ServiceResponse.ServiceStatus.NotFound)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+
+
+
+
 
         /// <summary>
         /// Add new topic to the database
@@ -118,115 +114,118 @@ namespace Trendy.Controllers
         /// or
         /// 404 Not Found
         /// </returns>
-        
-        [HttpPost(template:"Add")]
+
+        [HttpPost(template: "Add")]
 
         public async Task<ActionResult<Topic>> AddNewTopic(CreateTopicDto createTopicDto)
         {
-            //Create anew topic object
-            var topic = new Topic
+            ServiceResponse response = await _topicService.AddNewTopic(createTopicDto);
+
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                TopicTitle = createTopicDto.TopicTitle,
-                TopicDescription = createTopicDto.TopicDescription,
-                CreatedAt = DateTime.Now
-
-            };
-            var categories = await _context.Categories
-                //SOURCE: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=net-9.0
-                .Where(c => createTopicDto.TopicCategory.Contains(c.CategoryId))
-                .ToListAsync();
-            topic.Categories = categories;
-
-            _context.Topics.Add(topic);
-            await _context.SaveChangesAsync();
-
-            return Created($"api/Topics/{topic.TopicId}", createTopicDto);
-
-
-        }
-
-        // GET: api/Topics
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
-        {
-            return await _context.Topics.ToListAsync();
-        }
-
-        // GET: api/Topics/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Topic>> GetTopic(int id)
-        {
-            var topic = await _context.Topics.FindAsync(id);
-
-            if (topic == null)
+                return NotFound(response.Messages);
+            }
+            else if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return NotFound();
+                return StatusCode(500, response.Messages);
             }
 
-            return topic;
+            // returns 201 Created with Location
+            return Created($"api/Topics/GetTopicById/{response.CreatedId}",response);
+
+
+            
+
+
         }
 
-        // PUT: api/Topics/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTopic(int id, Topic topic)
+
+        /// <summary>
+        /// Updates an existing topic based on the provided topic ID and update details.
+        /// </summary>
+        /// <param name="id">The ID of the topic to update (from the URL).</param>
+        /// <param name="updateTopicDto">An object containing the new topic title, description, and category IDs.</param>
+        /// <returns>
+        /// Returns:
+        /// 
+        /// - 404 NotFound if the topic doesn't exist.
+        /// - 500 InternalServerError if an error occurs during update.
+        /// - 200 OK with a success response if the update succeeds.
+        /// </returns>
+        /// <remarks>
+        /// This endpoint updates the topic's title, description, and category links.
+        /// </remarks>
+
+
+        [HttpPut(template:"UpdateTopic")]
+
+        public async Task<IActionResult> UpdateTopic( UpdateTopicDto updateTopicDto)
         {
-            if (id != topic.TopicId)
+           
+            // Call the service method to perform the update
+            var response = await _topicService.UpdateTopic(updateTopicDto);
+
+            // If the topic wasn't found, return 404 Not Found
+
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                return BadRequest();
+                return NotFound(response.Messages);
             }
 
-            _context.Entry(topic).State = EntityState.Modified;
-
-            try
+            // If there was a server error during update, return 500
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                await _context.SaveChangesAsync();
+                return StatusCode(500, response.Messages);
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TopicExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+               
 
-            return NoContent();
+            // If everything went fine, return 200 OK with the response
+            return Ok(response);
         }
 
-        // POST: api/Topics
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Topic>> PostTopic(Topic topic)
-        {
-            _context.Topics.Add(topic);
-            await _context.SaveChangesAsync();
+        /// <summary>
+        /// Deletes a topic by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the topic to be deleted.</param>
+        /// <returns>
+        /// Returns 404 if not found, 500 if error occurs, and 200 if successfully deleted.
+        /// </returns>
+        [HttpDelete(template:"DeleteTopic/{id}")]
 
-            return CreatedAtAction("GetTopic", new { id = topic.TopicId }, topic);
-        }
-
-        // DELETE: api/Topics/5
-        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTopic(int id)
         {
-            var topic = await _context.Topics.FindAsync(id);
-            if (topic == null)
+            // Call the service to delete the topic
+            var response = await _topicService.DeleteTopic(id);
+
+            // Return 404 Not Found if topic doesn't exist
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response.Messages);
+
+            // Return 500 Internal Server Error if deletion failed
+            if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
+
+
+            // Return 200 OK with confirmation if deleted successfully
+            return Ok(response);
+
+        }
+
+
+        [HttpGet(template:"SearchByKeyword")]
+
+        public async Task<IActionResult>SeatchTopicsByKeyWord([FromQuery]string keyword)
+        {
+            var results = await _topicService.SearchTopicsByKeyword(keyword);
+            if (!results.Any())
             {
-                return NotFound();
+                return NotFound($"No topics found matching keyword: {keyword}");
             }
 
-            _context.Topics.Remove(topic);
-            await _context.SaveChangesAsync();
+            return Ok(results);
 
-            return NoContent();
         }
 
-        private bool TopicExists(int id)
-        {
-            return _context.Topics.Any(e => e.TopicId == id);
-        }
+
     }
 }

@@ -16,8 +16,32 @@ namespace Trendy.Models
         public int TopicId { get; set; }
 
         //A comment can have one user
-        public required virtual User User { get; set; }
-        public int UserId { get; set; }
+        public  User? User { get; set; }
+        public int? UserId { get; set; }
 
+    }
+
+
+    public class CommentDto
+    {
+        public int CommentId { get; set; }
+        public string CommentText { get; set; } = "No comment provided.";
+        public string CreatedAt { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+        // Temporarily hardcode
+        public string UserName { get; set; } = "Anonymous";
+    }
+
+    public class CreateCommentDto
+    {
+        // Defaults if user doesn't provide comment
+        public string CommentText { get; set; } =  "No comment provided.";
+
+
+        public int TopicId { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+        public int? UserId { get; set; }
     }
 }

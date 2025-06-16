@@ -12,8 +12,8 @@ using Trendy.Models;
 namespace Trendy.Migrations
 {
     [DbContext(typeof(TrendyDbContext))]
-    [Migration("20250607001517_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250615144251_AddCategoryNavigationToCategoryTopic")]
+    partial class AddCategoryNavigationToCategoryTopic
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,21 +25,6 @@ namespace Trendy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CategoryTopic", b =>
-                {
-                    b.Property<int>("CategoriesCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TopicsTopicId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesCategoryId", "TopicsTopicId");
-
-                    b.HasIndex("TopicsTopicId");
-
-                    b.ToTable("CategoryTopic");
-                });
-
             modelBuilder.Entity("Trendy.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -49,11 +34,35 @@ namespace Trendy.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
                     b.Property<string>("CategoryName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Trendy.Models.CategoryTopic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TopicId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("TopicId");
+
+                    b.ToTable("CategoryTopics");
                 });
 
             modelBuilder.Entity("Trendy.Models.Comment", b =>
@@ -129,19 +138,23 @@ namespace Trendy.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CategoryTopic", b =>
+            modelBuilder.Entity("Trendy.Models.CategoryTopic", b =>
                 {
-                    b.HasOne("Trendy.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesCategoryId")
+                    b.HasOne("Trendy.Models.Category", "Category")
+                        .WithMany("CategoryTopics")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Trendy.Models.Topic", null)
-                        .WithMany()
-                        .HasForeignKey("TopicsTopicId")
+                    b.HasOne("Trendy.Models.Topic", "Topic")
+                        .WithMany("CategoryTopics")
+                        .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Topic");
                 });
 
             modelBuilder.Entity("Trendy.Models.Comment", b =>
@@ -163,8 +176,15 @@ namespace Trendy.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Trendy.Models.Category", b =>
+                {
+                    b.Navigation("CategoryTopics");
+                });
+
             modelBuilder.Entity("Trendy.Models.Topic", b =>
                 {
+                    b.Navigation("CategoryTopics");
+
                     b.Navigation("Comments");
                 });
 
