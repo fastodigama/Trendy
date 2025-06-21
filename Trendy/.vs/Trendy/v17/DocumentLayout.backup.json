@@ -3,32 +3,90 @@
   "WorkspaceRootPath": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\confirmdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\confirmdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\topicpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\topicpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\controllers\\topicpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:controllers\\topicpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\controllers\\topicscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:controllers\\topicscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\interfaces\\itopicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:interfaces\\itopicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\services\\topicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:services\\topicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:models\\topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\services\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:services\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:interfaces\\icommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:controllers\\commentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|c:\\users\\it_fa\\onedrive\\humber webdev\\back-end-web-development-2-http-5226-rnb\\passion project\\trendyapp\\trendy\\trendy\\models\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA338B8-365E-44A8-A4E5-9CC634D830B8}|Trendy.csproj|solutionrelative:models\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetUserRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,98 +96,272 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T23:07:03.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CommentsController.cs",
-              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\CommentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CommentsController.cs",
-              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\CommentsController.cs",
-              "RelativeToolTip": "Controllers\\CommentsController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAIwDwAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:50:43.55Z",
-              "EditorCaption": ""
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T02:55:07.434Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Topic.cs",
-              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Topic.cs",
-              "RelativeDocumentMoniker": "Models\\Topic.cs",
-              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Topic.cs",
-              "RelativeToolTip": "Models\\Topic.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA5wCwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:20:26.407Z",
+              "Title": "ConfirmDelete.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\ConfirmDelete.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\ConfirmDelete.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\ConfirmDelete.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\ConfirmDelete.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAswDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T02:36:04.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
+              "Title": "ITopicService.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ITopicService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ITopicService.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ITopicService.cs",
+              "RelativeToolTip": "Interfaces\\ITopicService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwFcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:33:21.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Edit.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\Edit.cshtml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T02:05:40.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICategoryService.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICategoryService.cs",
+              "RelativeToolTip": "Interfaces\\ICategoryService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T02:04:07.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CategoryService.cs",
               "RelativeDocumentMoniker": "Services\\CategoryService.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CategoryService.cs",
               "RelativeToolTip": "Services\\CategoryService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACoBAAAAAAAAAADwv0QBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:41:46.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CommentService.cs",
-              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CommentService.cs",
-              "RelativeDocumentMoniker": "Services\\CommentService.cs",
-              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CommentService.cs",
-              "RelativeToolTip": "Services\\CommentService.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAYwHYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:33:56.519Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T02:01:49.019Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ICommentService.cs",
-              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICommentService.cs",
-              "RelativeDocumentMoniker": "Interfaces\\ICommentService.cs",
-              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICommentService.cs",
-              "RelativeToolTip": "Interfaces\\ICommentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:25:56.745Z",
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Error.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\Error.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Error.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T01:03:57.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "New.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\New.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\New.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\New.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\New.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T01:03:31.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\Details.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\Details.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\Details.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAswEkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T01:02:46.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\List.cshtml",
+              "RelativeDocumentMoniker": "Views\\TopicPage\\List.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Views\\TopicPage\\List.cshtml",
+              "RelativeToolTip": "Views\\TopicPage\\List.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAswDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T01:02:30.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T00:58:54.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TopicPageController.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\TopicPageController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TopicPageController.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\TopicPageController.cs",
+              "RelativeToolTip": "Controllers\\TopicPageController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowD0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T00:46:59.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ICommentService.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICommentService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICommentService.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Interfaces\\ICommentService.cs",
+              "RelativeToolTip": "Interfaces\\ICommentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T00:22:37.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CommentsController.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\CommentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CommentsController.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\CommentsController.cs",
+              "RelativeToolTip": "Controllers\\CommentsController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAxwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T00:19:02.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CommentService.cs",
+              "RelativeDocumentMoniker": "Services\\CommentService.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\CommentService.cs",
+              "RelativeToolTip": "Services\\CommentService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T00:16:10.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TopicService.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\TopicService.cs",
+              "RelativeDocumentMoniker": "Services\\TopicService.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Services\\TopicService.cs",
+              "RelativeToolTip": "Services\\TopicService.cs",
+              "ViewState": "AgIAAIMBAAAAAAAAAAAswIkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T23:50:50.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServiceResponse.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\ServiceResponse.cs",
+              "RelativeDocumentMoniker": "Models\\ServiceResponse.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\ServiceResponse.cs",
+              "RelativeToolTip": "Models\\ServiceResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T23:50:29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Topic.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Topic.cs",
+              "RelativeDocumentMoniker": "Models\\Topic.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Topic.cs",
+              "RelativeToolTip": "Models\\Topic.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T23:46:14.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "Models\\Comment.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Models\\Comment.cs",
               "RelativeToolTip": "Models\\Comment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T22:15:26.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-20T23:45:31.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "dbo.AspNetRoles.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetRoles.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetRoles.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-20T23:36:02.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "dbo.AspNetUserRoles.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetUserRoles.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/aspnet_Trendy_9eae644e_9e55_40d4_850e_6ca736654ad4/True/SqlTable/dbo.AspNetUserRoles.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-20T23:34:09.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TopicsController.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\TopicsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TopicsController.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\Humber WebDev\\Back-End-Web-Development-2-HTTP-5226-RNB\\passion project\\TrendyApp\\Trendy\\Trendy\\Controllers\\TopicsController.cs",
+              "RelativeToolTip": "Controllers\\TopicsController.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAAswPEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T23:13:12.79Z"
             }
           ]
         }

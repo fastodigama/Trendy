@@ -9,7 +9,7 @@ namespace Trendy.Interfaces
         /// </summary>
         /// <param name="createCommentDto">DTO containing comment details.</param>
         /// <returns>A ServiceResponse indicating success or failure.</returns>
-        Task<ServiceResponse> AddComment(CreateCommentDto createCommentDto);
+        Task<ServiceResponse> AddComment(CreateCommentDto createCommentDto , string? userId);
 
         /// <summary>
         /// Lists all comments for a specific topic.

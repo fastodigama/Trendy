@@ -1,20 +1,21 @@
-﻿using Trendy.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Trendy.Data;
+using Trendy.Interfaces;
 using Trendy.Models;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace Trendy.Services
 {
     public class CommentService : ICommentService
     {
-        private readonly TrendyDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CommentService(TrendyDbContext context)
+        public CommentService(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<ServiceResponse> AddComment(CreateCommentDto createCommentDto)
+        public async Task<ServiceResponse> AddComment(CreateCommentDto createCommentDto , string userId)
         {
             var response = new ServiceResponse();
 
@@ -32,7 +33,7 @@ namespace Trendy.Services
                 CreatedAt = DateTime.Now,
                 TopicId = createCommentDto.TopicId,
                 Topic = topic,
-                UserId = null // optional for now
+                UserId = userId 
             };
 
             _context.Comments.Add(comment);

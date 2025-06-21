@@ -466,7 +466,7 @@
         }
       }
     },
-    "/api/Topics/GetTopicsByCategoryId/{id}": {
+    "/api/Topics/ListTopicsByCategoryId/{id}": {
       "get": {
         "tags": [
           "Topics"
@@ -709,12 +709,30 @@
             "type": "integer",
             "format": "int32"
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
           "userId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommentDto": {
+        "type": "object",
+        "properties": {
+          "commentId": {
             "type": "integer",
-            "format": "int32",
+            "format": "int32"
+          },
+          "commentText": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -747,11 +765,6 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -759,6 +772,10 @@
       "CreateTopicDto": {
         "type": "object",
         "properties": {
+          "topicId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "topicTitle": {
             "type": "string",
             "nullable": true
@@ -778,6 +795,69 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentityUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -846,6 +926,13 @@
             "type": "string",
             "format": "date-time"
           },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/IdentityUser"
+          },
           "comments": {
             "type": "array",
             "items": {
@@ -878,6 +965,10 @@
             "type": "string",
             "nullable": true
           },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
           "topicCategory": {
             "type": "array",
             "items": {
@@ -887,6 +978,13 @@
           },
           "createdAt": {
             "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommentDto"
+            },
             "nullable": true
           }
         },
@@ -912,35 +1010,6 @@
             "items": {
               "type": "integer",
               "format": "int32"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "comments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Comment"
             },
             "nullable": true
           }

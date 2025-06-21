@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Trendy.Data;
 using Trendy.Interfaces;
 using Trendy.Models;
 
@@ -15,7 +16,7 @@ namespace Trendy.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
-        private readonly TrendyDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CategoriesController(ICategoryService CategoryService)
         {

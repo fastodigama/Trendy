@@ -1,5 +1,6 @@
 ﻿using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
+using Trendy.Data;
 using Trendy.Interfaces;
 using Trendy.Models;
 
@@ -7,9 +8,9 @@ namespace Trendy.Services
 {
     public class CategoryService: ICategoryService
     {
-        private readonly TrendyDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CategoryService(TrendyDbContext context)
+        public CategoryService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -313,6 +314,13 @@ namespace Trendy.Services
             }
 
             return serviceResponse;
+        }
+        public async Task<List<int>> GetCategoryIdsForTopic(int topicId)
+        {
+            return await _context.CategoryTopics
+                .Where(ct => ct.TopicId == topicId)
+                .Select(ct => ct.CategoryId)
+                .ToListAsync();
         }
 
 

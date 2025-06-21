@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -81,9 +82,9 @@ namespace Trendy.Controllers
 
         }
 
-        [HttpGet("GetTopicsByCategoryId/{id}")]
+        [HttpGet("ListTopicsByCategoryId/{id}")]
 
-        public async Task<IActionResult> GetTopicsByCategoryId(int id)
+        public async Task<IActionResult> ListTopicsByCategoryId(int id)
         {
             var response = await _topicService.ListTopicsByCategoryId(id);
             if(response.Status == ServiceResponse.ServiceStatus.NotFound)
@@ -100,26 +101,35 @@ namespace Trendy.Controllers
 
 
         /// <summary>
-        /// Add new topic to the database
+        /// Adds a new topic to the database. Only accessible by Admin users.
         /// </summary>
-        /// <param name="createTopicDto"> pass the required information to add a new topic (TopicTitle,
-        /// TopicDescription, CreatedAt, and Category
+        /// <param name="createTopicDto">
+        /// The data required to create the topic (title, description, createdAt, category IDs).
         /// </param>
         /// <example>
         /// POST api/Topic/Add
         /// </example>
         /// <returns>
-        /// 201 Created
-        /// Location: api/topic/find/{topicId}
-        /// or
-        /// 404 Not Found
+        /// 201 Created with Location header if successful.
+        /// 404 Not Found if any linked categories are invalid.
+        /// 401 Unauthorized if the user is not logged in.
+        /// 500 Internal Server Error if the operation fails.
         /// </returns>
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost(template: "Add")]
 
         public async Task<ActionResult<Topic>> AddNewTopic(CreateTopicDto createTopicDto)
         {
-            ServiceResponse response = await _topicService.AddNewTopic(createTopicDto);
+            //get the currently logged-in user id
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if(userId == null || userId == "")
+            {
+                return Unauthorized("User not logged in.");
+            }
+            // Pass userId to the service
+            ServiceResponse response = await _topicService.AddNewTopic(createTopicDto, userId);
 
             if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {

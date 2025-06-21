@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.Identity.Client;
+
 
 namespace Trendy.Models
 {
@@ -15,10 +15,8 @@ namespace Trendy.Models
         public required virtual Topic Topic { get; set; }
         public int TopicId { get; set; }
 
-        //A comment can have one user
-        public  User? User { get; set; }
-        public int? UserId { get; set; }
-
+        // reference to Identity user
+        public string? UserId { get; set; }  // Identity uses string for user IDs
     }
 
 
@@ -42,6 +40,6 @@ namespace Trendy.Models
         public int TopicId { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        public int? UserId { get; set; }
+       
     }
 }

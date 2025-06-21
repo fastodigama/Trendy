@@ -1,5 +1,8 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Trendy.Data;
 using Trendy.Interfaces;
 using Trendy.Models;
 
@@ -7,15 +10,17 @@ namespace Trendy.Services
 {
     public class TopicService: ITopicService
     {
-        private readonly TrendyDbContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
         // <summary>
         /// Initializes a new instance of the TopicService class.
         /// </summary>
         /// <param name="context">The database context used for accessing topic data.</param>
-        public TopicService(TrendyDbContext context)
+        public TopicService(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -27,20 +32,63 @@ namespace Trendy.Services
         public async Task<IEnumerable<TopicDto>> ListTopics()
         {
             var topics = await _context.Topics
-                .Include(t => t.CategoryTopics)
-                .ThenInclude(ct => ct.Category)
-                .ToListAsync();
-            return topics.Select(topic => new TopicDto
+         .Include(t => t.CategoryTopics)
+         .ThenInclude(ct => ct.Category)
+         .Include(t=> t.Comments)
+         .ToListAsync();
+
+            var topicDtos = new List<TopicDto>();
+
+            //get the admin user to display created by admin
+            foreach (var topic in topics)
             {
-                TopicId = topic.TopicId,
-                TopicCategory = topic.CategoryTopics
-                .Select(ct => ct.Category.CategoryName)
-                .ToList(),
-                TopicDescription = topic.TopicDescription,
-                TopicTitle = topic.TopicTitle,
-                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
-            }).ToList();
+                string? createdBy = null;
+
+                if (!string.IsNullOrEmpty(topic.UserId))
+                {
+                    var user = await _userManager.FindByIdAsync(topic.UserId);
+                    createdBy = user?.UserName; // or user?.Email
+                }
+
+                //get the user who made the comment
+                var commentDtos = new List<CommentDto>();
+                foreach (var comment in topic.Comments)
+                {
+                    string userName = "Anonymous";
+                    if (!string.IsNullOrEmpty(comment.UserId))
+                    {
+                        var commentUser = await _userManager.FindByIdAsync(comment.UserId);
+                        userName = commentUser?.UserName ?? "Anonymous";
+                    }
+
+                    commentDtos.Add(new CommentDto
+                    {
+                        CommentId = comment.CommentId,
+                        CommentText = comment.CommentText,
+                        CreatedAt = comment.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                        UserName = userName
+                    });
+                }
+
+
+                topicDtos.Add(new TopicDto
+                {
+                    TopicId = topic.TopicId,
+                    TopicTitle = topic.TopicTitle,
+                    TopicDescription = topic.TopicDescription,
+                    TopicCategory = topic.CategoryTopics.Select(ct => ct.Category.CategoryName).ToList(),
+                    CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                    CreatedBy = createdBy,
+                    Comments = commentDtos
+                });
+            }
+
+            return topicDtos;
         }
+
+
+
+
         /// <summary>
         /// Retrieves a specific topic by its id, including category details.
         /// </summary>
@@ -60,6 +108,7 @@ namespace Trendy.Services
             var topic = await _context.Topics
                 .Include(t => t.CategoryTopics)
                 .ThenInclude(ct =>ct.Category)
+                .Include(t => t.Comments)
                 .FirstOrDefaultAsync(t => t.TopicId == topicId);
 
             // if no topic found
@@ -73,16 +122,45 @@ namespace Trendy.Services
             response.Status = ServiceResponse.ServiceStatus.Found;
             response.Messages.Add("Topic retrieved successfully.");
 
+            //get the topic creator username(admin)
+            string? createdBy = null;
+            if (!string.IsNullOrEmpty(topic.UserId))
+            {
+                var user = await _userManager.FindByIdAsync(topic.UserId);
+                createdBy = user?.UserName;
+            }
 
-            //store topic details inside the response
-            response.TopicData = new TopicDto
+            //get comments usernames
+            var commentDtos = new List<CommentDto>();
+            foreach (var comment in topic.Comments)
+            {
+                string userName = "Anonymous";
+                if (!string.IsNullOrEmpty(comment.UserId))
+                {
+                    var commentUser = await _userManager.FindByIdAsync(comment.UserId);
+                    userName = commentUser?.UserName ?? "Anonymous";
+                }
+
+                commentDtos.Add(new CommentDto
+                {
+                    CommentId = comment.CommentId,
+                    CommentText = comment.CommentText,
+                    CreatedAt = comment.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                    UserName = userName
+                });
+            }
+
+                //store topic details inside the response
+                response.TopicData = new TopicDto
             {
                 TopicId = topic.TopicId,
                 TopicTitle = topic.TopicTitle,
                 TopicDescription = topic.TopicDescription,
                 TopicCategory = topic.CategoryTopics.Select(ct => ct.Category.CategoryName).ToList(),                  
-                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
-            };
+                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                CreatedBy = createdBy,
+                Comments = commentDtos
+                };
 
             return response;
 
@@ -131,8 +209,10 @@ namespace Trendy.Services
                 TopicTitle = topic.TopicTitle,
                 TopicDescription = topic.TopicDescription,
                 TopicCategory = topic.CategoryTopics.Select(ct => ct.Category.CategoryName).ToList(),
-                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
+                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+
             }).ToList();
+           
 
             return response;
         }
@@ -142,15 +222,12 @@ namespace Trendy.Services
         /// Adds a new topic to the database.
         /// </summary>
         /// <param name="createTopicDto">The DTO containing topic details.</param>
+        /// <param name="userId">The ID of the user creating the topic.</param>
         /// <returns>
         /// A ServiceResponse object indicating the result of the operation.
         /// </returns>
-        /// <remarks>
-        /// If successful, the response will have a 'Created' status and include the new topic ID.
-        /// If an error occurs, the response will contain error messages.
-        /// </remarks>
 
-        public async Task<ServiceResponse> AddNewTopic(CreateTopicDto createTopicDto)
+        public async Task<ServiceResponse> AddNewTopic(CreateTopicDto createTopicDto, string userId)
         {
             ServiceResponse serviceResponse = new ServiceResponse();
 
@@ -161,7 +238,9 @@ namespace Trendy.Services
             {
                 TopicTitle = createTopicDto.TopicTitle,
                 TopicDescription = createTopicDto.TopicDescription,
-                CreatedAt = createTopicDto.CreatedAt
+                CreatedAt = createTopicDto.CreatedAt,
+                UserId = userId // passed in from controller
+                
 
             };
             // Loop through each inserted category ID by the admin to create links
@@ -201,6 +280,9 @@ namespace Trendy.Services
 
                     return serviceResponse; // Return early to prevent further execution
                 }
+            // Lookup username from UserId
+            var user = await _userManager.FindByIdAsync(userId);
+            string username = user?.UserName ?? "Unknown";
 
             serviceResponse.Status = ServiceResponse.ServiceStatus.Created;
             serviceResponse.Messages.Add("Topic created successfully.");
@@ -213,7 +295,8 @@ namespace Trendy.Services
                 TopicTitle = topic.TopicTitle,
                 TopicDescription = topic.TopicDescription,
                 TopicCategory = topic.CategoryTopics.Select(ct => ct.Category.CategoryName).ToList(),
-                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
+                CreatedAt = topic.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                CreatedBy = username
             }; 
             return serviceResponse;
 

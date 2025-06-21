@@ -46,6 +46,7 @@ namespace Trendy.Interfaces
         /// Adds a new topic to the database.
         /// </summary>
         /// <param name="createTopicDto">The DTO containing topic details, such as title and description.</param>
+        /// <param name="userId">The ID of the currently logged-in user (must be an admin).</param>
         /// <returns>
         /// A ServiceResponse indicating success ('Created') or failure ('Error').
         /// </returns>
@@ -53,7 +54,7 @@ namespace Trendy.Interfaces
         /// If successful, the response will contain the newly created topic ID.
         /// If an error occurs, the response will return error messages.
         /// </remarks>
-        Task<ServiceResponse> AddNewTopic(CreateTopicDto createTopicDto);
+        Task<ServiceResponse> AddNewTopic(CreateTopicDto createTopicDto, string userId);
 
         /// <summary>
         /// Updates an existing topic's title, description, and linked categories.
@@ -84,7 +85,7 @@ namespace Trendy.Interfaces
         /// <returns>
         /// A task that returns a list of TopicDto objects matching the keyword.
         /// </returns>
-        Task<IEnumerable<TopicDto>> SearchTopicsByKeyword(string keywork);
+        Task<IEnumerable<TopicDto>> SearchTopicsByKeyword(string keyword);
 
 
     }

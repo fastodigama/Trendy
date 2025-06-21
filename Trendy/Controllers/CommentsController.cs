@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,9 @@ namespace Trendy.Controllers
         [HttpPost("AddComment")]
         public async Task<IActionResult> AddComment([FromBody] CreateCommentDto createCommentDto)
         {
-            var response = await _commentService.AddComment(createCommentDto);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // get logged-in user's ID
+
+            var response = await _commentService.AddComment(createCommentDto,userId);
 
             if (response.Status == ServiceResponse.ServiceStatus.Error)
                 return StatusCode(500, response.Messages);

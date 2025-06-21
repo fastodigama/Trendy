@@ -66,5 +66,9 @@ namespace Trendy.Interfaces
         /// <param name="id">The ID of the category to delete.</param>
         /// <returns>A ServiceResponse indicating success or failure.</returns>
         Task<ServiceResponse> DeleteCategory(int id);
+
+
+        Task<List<int>> GetCategoryIdsForTopic(int topicId);
+
     }
 }

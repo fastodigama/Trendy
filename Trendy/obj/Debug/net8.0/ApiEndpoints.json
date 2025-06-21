@@ -284,22 +284,6 @@
   },
   {
     "ContainingType": "Trendy.Controllers.TopicsController",
-    "Method": "GetTopicsByCategoryId",
-    "RelativePath": "api/Topics/GetTopicsByCategoryId/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Trendy.Controllers.TopicsController",
     "Method": "ListTopics",
     "RelativePath": "api/Topics/ListTopics",
     "HttpMethod": "GET",
@@ -317,6 +301,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "Trendy.Controllers.TopicsController",
+    "Method": "ListTopicsByCategoryId",
+    "RelativePath": "api/Topics/ListTopicsByCategoryId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Trendy.Controllers.TopicsController",
